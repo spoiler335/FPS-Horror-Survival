@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8820910987850811965
+--- !u!114 &-5162171865542070296
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,7 +30,7 @@ MonoBehaviour:
     value: 0.614
   smoothness:
     overrideState: 1
-    value: 0.406
+    value: 0.408
   roundness:
     overrideState: 1
     value: 0.495
@@ -44,74 +44,7 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: NightVision
-  m_EditorClassIdentifier: 
-  settings:
-  - {fileID: 1778227333566682227}
-  - {fileID: 3218352836364212498}
-  - {fileID: 4832317884251760978}
-  - {fileID: 8674261497403333518}
-  - {fileID: -8820910987850811965}
---- !u!114 &1778227333566682227
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
-  m_Name: AmbientOcclusion
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  mode:
-    overrideState: 0
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 0.4
-  color:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
-  ambientOnly:
-    overrideState: 0
-    value: 1
-  noiseFilterTolerance:
-    overrideState: 0
-    value: 0
-  blurTolerance:
-    overrideState: 0
-    value: -4.6
-  upsampleTolerance:
-    overrideState: 0
-    value: -12
-  thicknessModifier:
-    overrideState: 1
-    value: 1
-  directLightingStrength:
-    overrideState: 0
-    value: 0
-  radius:
-    overrideState: 0
-    value: 0.25
-  quality:
-    overrideState: 0
-    value: 2
---- !u!114 &3218352836364212498
+--- !u!114 &-4187140432552284263
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,13 +62,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 9.5
+    value: 9.54
   threshold:
     overrideState: 1
     value: 0.32
   softKnee:
     overrideState: 1
-    value: 0.75
+    value: 0.744
   clamp:
     overrideState: 0
     value: 65472
@@ -158,7 +91,7 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
---- !u!114 &4832317884251760978
+--- !u!114 &-1034167620604376731
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +153,7 @@ MonoBehaviour:
     value: {r: 1.1294118, g: 1.8745098, b: 1.0352942, a: 1}
   hueShift:
     overrideState: 1
-    value: -46
+    value: -19
   saturation:
     overrideState: 1
     value: -63
@@ -262,13 +195,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.6486611, y: 0.7669128, z: 1, w: 0}
+    value: {x: 0.6390003, y: 0.7944726, z: 1, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.8789593, y: 1, z: 0.91529727, w: 0}
+    value: {x: 0.80328083, y: 1, z: 0.86688226, w: 0}
   gain:
     overrideState: 1
-    value: {x: 0.4367494, y: 1, z: 0.39847064, w: 0}
+    value: {x: 0.5019422, y: 1, z: 0.44430047, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1469,7 +1402,74 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &8674261497403333518
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: NightVision
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: 1908658571667197284}
+  - {fileID: -4187140432552284263}
+  - {fileID: -1034167620604376731}
+  - {fileID: 9199269141070360363}
+  - {fileID: -5162171865542070296}
+--- !u!114 &1908658571667197284
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
+  m_Name: AmbientOcclusion
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 0
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.4
+  color:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  ambientOnly:
+    overrideState: 0
+    value: 1
+  noiseFilterTolerance:
+    overrideState: 0
+    value: 0
+  blurTolerance:
+    overrideState: 0
+    value: -4.6
+  upsampleTolerance:
+    overrideState: 0
+    value: -12
+  thicknessModifier:
+    overrideState: 1
+    value: 1
+  directLightingStrength:
+    overrideState: 0
+    value: 0
+  radius:
+    overrideState: 0
+    value: 0.25
+  quality:
+    overrideState: 0
+    value: 2
+--- !u!114 &9199269141070360363
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1490,7 +1490,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 0.403
   size:
     overrideState: 1
     value: 1.22
