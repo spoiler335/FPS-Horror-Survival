@@ -5,7 +5,7 @@ using UnityEngine;
 public class OneShotSound : MonoBehaviour
 {
     private AudioSource oneShot;
-    private Collider collider;
+    private Collider  collider;
 
     [SerializeField] bool oneTime=false;
     [SerializeField] float pauseTime=5.0f;

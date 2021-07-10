@@ -21,18 +21,22 @@ public class LightSettingsPlayer : MonoBehaviour
 
     void Update()
     {
+        if(SaveScript.batteryPower>0.0f)
+        {
         if(Input.GetKeyDown(KeyCode.N))
         {
             if (myVolume.profile == Standard)
             {
                 myVolume.profile = nightVision;
                 nightVisisonOverlay.SetActive(true);
+                SaveScript.NVOn=true;
             }
 
             else if(myVolume.profile==nightVision)
             {
                 myVolume.profile = Standard;
                 nightVisisonOverlay.SetActive(false);
+                SaveScript.NVOn=false;
             }
         }
 
@@ -42,13 +46,27 @@ public class LightSettingsPlayer : MonoBehaviour
             {
                 spotLight.SetActive(false);
                 isFlashLightOn = false;
+                SaveScript.flashLightOn=false;
             }
 
             else
             {
                 spotLight.SetActive(true);
                 isFlashLightOn = true;
+                SaveScript.flashLightOn=true;
             }
         }
+    }
+    else
+    {
+        myVolume.profile = Standard;
+        nightVisisonOverlay.SetActive(false);
+        SaveScript.NVOn=false;
+
+        spotLight.SetActive(false);
+        isFlashLightOn = false;
+        SaveScript.flashLightOn=false;
+
+    }
     }
 }
