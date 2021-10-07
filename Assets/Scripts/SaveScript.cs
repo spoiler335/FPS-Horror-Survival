@@ -13,4 +13,6 @@ public class SaveScript : MonoBehaviour
     public static bool flashLightOn=false;
 
     public static bool NVOn=false;
+
+    public static int apples=0;
 }

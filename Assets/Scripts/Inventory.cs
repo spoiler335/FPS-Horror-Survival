@@ -6,11 +6,17 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] GameObject inventoryMenu;
     private bool inventoryActive=false;
+
+    [SerializeField] GameObject appleImage1;
+    [SerializeField] GameObject appleButton1;
+
     void Start()
     {
         inventoryMenu.SetActive(false);
         inventoryActive=false;
         Cursor.visible=false;   
+        appleImage1.gameObject.SetActive(false);
+        appleButton1.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,5 +40,17 @@ public class Inventory : MonoBehaviour
                 Cursor.visible=true;
             }
         }
+        checkInventory();
     }
+
+    void checkInventory()
+    {
+        if(SaveScript.apples==1)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(true);
+        }
+    }
+
+
 }
