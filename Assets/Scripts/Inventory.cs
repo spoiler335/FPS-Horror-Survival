@@ -53,4 +53,14 @@ public class Inventory : MonoBehaviour
     }
 
 
+    public void healthUpdate()
+    {
+        SaveScript.playerHealth+=10;
+        SaveScript.healthChanged=true;
+        SaveScript.apples--;
+        appleImage1.gameObject.SetActive(false);
+        appleButton1.gameObject.SetActive(false);
+    }
+
+
 }
