@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Apple
+  - Batterry
   layers:
   - Default
   - TransparentFX

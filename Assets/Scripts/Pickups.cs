@@ -33,6 +33,16 @@ public class Pickups : MonoBehaviour
                 }
             }
 
+            else if(hit.transform.tag=="Batterry")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Destroy(hit.transform.gameObject);
+                    ++SaveScript.battries;    
+                }
+            }
+
             else
             {
                 canSeePickup=false;

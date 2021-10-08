@@ -12,6 +12,14 @@ public class BatterPower : MonoBehaviour
     
     void Update()
     {
+
+        if(SaveScript.batteryRefil)
+        {
+            SaveScript.batteryRefil=false;
+            batteryUI.fillAmount=1f;
+        }
+
+
         if(SaveScript.flashLightOn || SaveScript.NVOn)
         {
             batteryUI.fillAmount-=1.0f /drainTime *Time.deltaTime;

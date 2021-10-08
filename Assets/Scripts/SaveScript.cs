@@ -15,4 +15,8 @@ public class SaveScript : MonoBehaviour
     public static bool NVOn=false;
 
     public static int apples=0;
+
+    public static int battries=0;
+
+    public static bool batteryRefil=false;
 }
