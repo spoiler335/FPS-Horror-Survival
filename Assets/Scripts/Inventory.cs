@@ -7,8 +7,26 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject inventoryMenu;
     private bool inventoryActive=false;
 
+    private AudioSource myPlayer;
+    [SerializeField] AudioClip apppleBite;
+
     [SerializeField] GameObject appleImage1;
     [SerializeField] GameObject appleButton1;
+    [SerializeField] GameObject appleImage2;
+    [SerializeField] GameObject appleButton2;
+    [SerializeField] GameObject appleImage3;
+    [SerializeField] GameObject appleButton3;
+    [SerializeField] GameObject appleImage4;
+    [SerializeField] GameObject appleButton4;
+    [SerializeField] GameObject appleImage5;
+    [SerializeField] GameObject appleButton5;
+    [SerializeField] GameObject appleImage6;
+    [SerializeField] GameObject appleButton6;
+
+
+
+
+
 
     [SerializeField] GameObject batteryImage1;
     [SerializeField] GameObject batteryButton1;
@@ -24,8 +42,22 @@ public class Inventory : MonoBehaviour
         inventoryMenu.SetActive(false);
         inventoryActive=false;
         Cursor.visible=false;   
+        myPlayer= GetComponent<AudioSource>();
+
+
         appleImage1.gameObject.SetActive(false);
         appleButton1.gameObject.SetActive(false);
+        appleImage2.gameObject.SetActive(false);
+        appleButton2.gameObject.SetActive(false);
+        appleImage3.gameObject.SetActive(false);
+        appleButton3.gameObject.SetActive(false);
+        appleImage4.gameObject.SetActive(false);
+        appleButton4.gameObject.SetActive(false);
+        appleImage5.gameObject.SetActive(false);
+        appleButton5.gameObject.SetActive(false);
+        appleImage6.gameObject.SetActive(false);
+        appleButton6.gameObject.SetActive(false);
+        
 
 
 
@@ -67,10 +99,117 @@ public class Inventory : MonoBehaviour
 
     void checkInventory()
     {
+        if(SaveScript.apples==0)
+        {
+            appleImage1.gameObject.SetActive(false);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(false);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(false);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(false);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(false);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        
         if(SaveScript.apples==1)
         {
             appleImage1.gameObject.SetActive(true);
             appleButton1.gameObject.SetActive(true);
+            appleImage2.gameObject.SetActive(false);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(false);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(false);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(false);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        if(SaveScript.apples==2)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(true);
+            appleButton2.gameObject.SetActive(true);
+            appleImage3.gameObject.SetActive(false);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(false);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(false);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        if(SaveScript.apples==3)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(true);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(true);
+            appleButton3.gameObject.SetActive(true);
+            appleImage4.gameObject.SetActive(false);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(false);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        if(SaveScript.apples==4)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(true);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(true);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(true);
+            appleButton4.gameObject.SetActive(true);
+            appleImage5.gameObject.SetActive(false);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        if(SaveScript.apples==5)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(true);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(true);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(true);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(true);
+            appleButton5.gameObject.SetActive(true);
+            appleImage6.gameObject.SetActive(false);
+            appleButton6.gameObject.SetActive(false);
+        }
+
+        if(SaveScript.apples==6)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(false);
+            appleImage2.gameObject.SetActive(true);
+            appleButton2.gameObject.SetActive(false);
+            appleImage3.gameObject.SetActive(true);
+            appleButton3.gameObject.SetActive(false);
+            appleImage4.gameObject.SetActive(true);
+            appleButton4.gameObject.SetActive(false);
+            appleImage5.gameObject.SetActive(true);
+            appleButton5.gameObject.SetActive(false);
+            appleImage6.gameObject.SetActive(true);
+            appleButton6.gameObject.SetActive(true);
         }
 
 
@@ -140,20 +279,26 @@ public class Inventory : MonoBehaviour
 
     public void healthUpdate()
     {
-        SaveScript.playerHealth+=10;
-        SaveScript.healthChanged=true;
-        SaveScript.apples--;
-        appleImage1.gameObject.SetActive(false);
-        appleButton1.gameObject.SetActive(false);
+        if(SaveScript.playerHealth < 100)
+        {
+            SaveScript.playerHealth+=10;
+            SaveScript.healthChanged=true;
+            SaveScript.apples--;
+            myPlayer.clip=apppleBite;
+            myPlayer.Play();
+        }
+
+        if(SaveScript.playerHealth > 100)
+        {
+            SaveScript.playerHealth=100;
+        }
     }
 
 
     public void batteryRefil()
     {
         SaveScript.batteryRefil=true;
-        SaveScript.battries-=1;
-
-        
+        SaveScript.battries-=1;    
     }
 
 

@@ -28,8 +28,11 @@ public class Pickups : MonoBehaviour
                 canSeePickup=true;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Destroy(hit.transform.gameObject);
-                    ++SaveScript.apples;    
+                    if(SaveScript.apples<6)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        ++SaveScript.apples; 
+                    }   
                 }
             }
 
@@ -38,8 +41,11 @@ public class Pickups : MonoBehaviour
                 canSeePickup=true;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Destroy(hit.transform.gameObject);
-                    ++SaveScript.battries;    
+                    if(SaveScript.battries < 4)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        ++SaveScript.battries;
+                    }    
                 }
             }
 
