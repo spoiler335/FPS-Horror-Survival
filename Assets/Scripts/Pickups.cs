@@ -8,6 +8,7 @@ public class Pickups : MonoBehaviour
 
     [SerializeField] float distance =4f;
     [SerializeField] GameObject pickupMessage;
+    private AudioSource myPlayer;
 
     private float rayDistance;
     private bool canSeePickup=false;
@@ -16,6 +17,7 @@ public class Pickups : MonoBehaviour
     {
         pickupMessage.gameObject.SetActive(false);
         rayDistance=distance;
+        myPlayer=GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class Pickups : MonoBehaviour
                     if(SaveScript.apples<6)
                     {
                         Destroy(hit.transform.gameObject);
+                        myPlayer.Play();
                         ++SaveScript.apples; 
                     }   
                 }
@@ -44,6 +47,7 @@ public class Pickups : MonoBehaviour
                     if(SaveScript.battries < 4)
                     {
                         Destroy(hit.transform.gameObject);
+                        myPlayer.Play();
                         ++SaveScript.battries;
                     }    
                 }

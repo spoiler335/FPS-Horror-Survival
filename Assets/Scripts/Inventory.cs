@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
 
     private AudioSource myPlayer;
     [SerializeField] AudioClip apppleBite;
+    [SerializeField] AudioClip batteryChange;
 
     [SerializeField] GameObject appleImage1;
     [SerializeField] GameObject appleButton1;
@@ -298,7 +299,10 @@ public class Inventory : MonoBehaviour
     public void batteryRefil()
     {
         SaveScript.batteryRefil=true;
-        SaveScript.battries-=1;    
+        SaveScript.battries-=1;
+
+        myPlayer.clip=batteryChange;
+        myPlayer.Play();
     }
 
 
