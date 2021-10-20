@@ -9,8 +9,8 @@ TagManager:
   - Knife
   - Axe
   - Bat
-  - CroosBow
   - Gun
+  - CrossBow
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip apppleBite;
     [SerializeField] AudioClip batteryChange;
 
+    //apples
     [SerializeField] GameObject appleImage1;
     [SerializeField] GameObject appleButton1;
     [SerializeField] GameObject appleImage2;
@@ -28,7 +29,7 @@ public class Inventory : MonoBehaviour
 
 
 
-
+    //battries
     [SerializeField] GameObject batteryImage1;
     [SerializeField] GameObject batteryButton1;
     [SerializeField] GameObject batteryImage2;
@@ -38,6 +39,19 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject batteryImage4;
     [SerializeField] GameObject batteryButton4;
 
+
+    //weapons
+    [SerializeField] GameObject knifeImage;    
+    [SerializeField] GameObject knifeButton;    
+    [SerializeField] GameObject axeImage;    
+    [SerializeField] GameObject axeButton;  
+    [SerializeField] GameObject batImage;    
+    [SerializeField] GameObject batButton;  
+    [SerializeField] GameObject gunImage;    
+    [SerializeField] GameObject gunButton;  
+    [SerializeField] GameObject corssbowImage;    
+    [SerializeField] GameObject crossbowButton;  
+
     void Start()
     {
         inventoryMenu.SetActive(false);
@@ -45,7 +59,7 @@ public class Inventory : MonoBehaviour
         Cursor.visible=false;   
         myPlayer= GetComponent<AudioSource>();
 
-
+        //apple
         appleImage1.gameObject.SetActive(false);
         appleButton1.gameObject.SetActive(false);
         appleImage2.gameObject.SetActive(false);
@@ -61,7 +75,7 @@ public class Inventory : MonoBehaviour
         
 
 
-
+        //battries
         batteryImage1.gameObject.SetActive(false);
         batteryButton1.gameObject.SetActive(false);
         batteryImage2.gameObject.SetActive(false);
@@ -71,6 +85,20 @@ public class Inventory : MonoBehaviour
         batteryImage4.gameObject.SetActive(false);
         batteryButton4.gameObject.SetActive(false);
         
+
+        //weapons
+        knifeImage.SetActive(false);
+        knifeButton.SetActive(false);
+        axeImage.SetActive(false);
+        axeButton.SetActive(false);
+        batImage.SetActive(false);
+        batButton.SetActive(false);
+        gunImage.SetActive(false);
+        gunButton.SetActive(false);
+        corssbowImage.SetActive(false);
+        crossbowButton.SetActive(false);
+
+
         
     }
 
@@ -96,6 +124,7 @@ public class Inventory : MonoBehaviour
             }
         }
         checkInventory();
+        checkWeapons();
     }
 
     void checkInventory()
@@ -277,6 +306,39 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
+    void checkWeapons()
+    {
+        if(SaveScript.Knife)
+        {
+            knifeImage.SetActive(true);
+            knifeButton.SetActive(true);
+        }
+
+        if(SaveScript.Axe)
+        {
+            axeImage.SetActive(true);
+            axeButton.SetActive(true);
+        }
+
+        if(SaveScript.Bat)
+        {
+            batImage.SetActive(true);
+            batButton.SetActive(true);
+        }
+
+        if(SaveScript.Gun)
+        {
+            gunImage.SetActive(true);
+            gunButton.SetActive(true);
+        }
+
+        if(SaveScript.Crossbow)
+        {
+            corssbowImage.SetActive(true);
+            crossbowButton.SetActive(true);
+        }
+    } 
 
     public void healthUpdate()
     {

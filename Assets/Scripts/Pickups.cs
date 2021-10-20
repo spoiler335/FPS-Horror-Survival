@@ -56,31 +56,73 @@ public class Pickups : MonoBehaviour
             else if(hit.transform.tag=="Knife")
             {
                 canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.Knife)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.Knife=true;
+                        myPlayer.Play();
+                    }
+                }
                 
             }
 
             else if(hit.transform.tag=="Gun")
             {
                 canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.Gun)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.Gun=true;
+                        myPlayer.Play();
+                    }
+                }
                 
             }
 
             else if(hit.transform.tag=="Bat")
             {
                 canSeePickup=true;
-                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.Bat)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.Bat=true;
+                        myPlayer.Play();
+                    }
+                }
             }
 
             else if(hit.transform.tag=="CrossBow")
             {
                 canSeePickup=true;
-                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.Crossbow)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.Crossbow=true;
+                        myPlayer.Play();
+                    }
+                }
             }
 
             else if(hit.transform.tag=="Axe")
             {
                 canSeePickup=true;
-                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.Axe)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.Axe=true;
+                        myPlayer.Play();
+                    }
+                }
             }
 
             else

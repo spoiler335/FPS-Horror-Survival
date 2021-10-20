@@ -19,4 +19,11 @@ public class SaveScript : MonoBehaviour
     public static int battries=0;
 
     public static bool batteryRefil=false;
+    public static bool Knife=false;
+    public static bool Bat=false;
+    public static bool Axe=false;
+    public static bool Gun=false;
+    public static bool Crossbow=false;
+
+
 }
