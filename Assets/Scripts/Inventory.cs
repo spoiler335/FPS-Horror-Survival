@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,6 +53,26 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject corssbowImage;    
     [SerializeField] GameObject crossbowButton;  
 
+
+    //keys
+    [SerializeField] GameObject cabinKey;
+    [SerializeField] GameObject roomKey;
+    [SerializeField] GameObject houseKey;
+
+    //ammo
+    [SerializeField] GameObject bulletClipImage1;
+    [SerializeField] GameObject bulletClipButton1;
+    [SerializeField] GameObject bulletClipImage2;
+    [SerializeField] GameObject bulletClipButton2;
+    [SerializeField] GameObject bulletClipImage3;
+    [SerializeField] GameObject bulletClipButton3;
+    [SerializeField] GameObject bulletClipImage4;
+    [SerializeField] GameObject bulletClipButton4;
+
+    [SerializeField] GameObject arrowImage;
+    [SerializeField] GameObject arrowButton;
+    
+
     void Start()
     {
         inventoryMenu.SetActive(false);
@@ -98,6 +119,22 @@ public class Inventory : MonoBehaviour
         corssbowImage.SetActive(false);
         crossbowButton.SetActive(false);
 
+        //keys
+        cabinKey.SetActive(false);
+        roomKey.SetActive(false);
+        houseKey.SetActive(false);
+
+        //ammo
+        bulletClipImage1.SetActive(false);
+        bulletClipButton1.SetActive(false);
+        bulletClipImage2.SetActive(false);
+        bulletClipButton2.SetActive(false);
+        bulletClipImage3.SetActive(false);
+        bulletClipButton3.SetActive(false);
+        bulletClipImage4.SetActive(false);
+        bulletClipButton4.SetActive(false);
+        arrowButton.SetActive(false);
+        arrowImage.SetActive(false);
 
         
     }
@@ -125,6 +162,102 @@ public class Inventory : MonoBehaviour
         }
         checkInventory();
         checkWeapons();
+        checkKeys();
+        checkAmmo();
+    }
+
+    private void checkAmmo()
+    {
+        if(SaveScript.bulletClips==0)
+        {
+            bulletClipImage1.SetActive(false);
+            bulletClipButton1.SetActive(false);
+            bulletClipImage2.SetActive(false);
+            bulletClipButton2.SetActive(false);
+            bulletClipImage3.SetActive(false);
+            bulletClipButton3.SetActive(false);
+            bulletClipImage4.SetActive(false);
+            bulletClipButton4.SetActive(false);
+        }
+
+        else if(SaveScript.bulletClips==1)
+        {
+            bulletClipImage1.SetActive(true);
+            bulletClipButton1.SetActive(true);
+            bulletClipImage2.SetActive(false);
+            bulletClipButton2.SetActive(false);
+            bulletClipImage3.SetActive(false);
+            bulletClipButton3.SetActive(false);
+            bulletClipImage4.SetActive(false);
+            bulletClipButton4.SetActive(false);
+        }
+
+        else if(SaveScript.bulletClips==2)
+        {
+            bulletClipImage1.SetActive(true);
+            bulletClipButton1.SetActive(false);
+            bulletClipImage2.SetActive(true);
+            bulletClipButton2.SetActive(true);
+            bulletClipImage3.SetActive(false);
+            bulletClipButton3.SetActive(false);
+            bulletClipImage4.SetActive(false);
+            bulletClipButton4.SetActive(false);
+        }
+
+        else if(SaveScript.bulletClips==3)
+        {
+            bulletClipImage1.SetActive(true);
+            bulletClipButton1.SetActive(false);
+            bulletClipImage2.SetActive(true);
+            bulletClipButton2.SetActive(false);
+            bulletClipImage3.SetActive(true);
+            bulletClipButton3.SetActive(true);
+            bulletClipImage4.SetActive(false);
+            bulletClipButton4.SetActive(false);
+        }
+
+        else if(SaveScript.bulletClips==4)
+        {
+            bulletClipImage1.SetActive(true);
+            bulletClipButton1.SetActive(false);
+            bulletClipImage2.SetActive(true);
+            bulletClipButton2.SetActive(false);
+            bulletClipImage3.SetActive(true);
+            bulletClipButton3.SetActive(false);
+            bulletClipImage4.SetActive(true);
+            bulletClipButton4.SetActive(true);
+        }
+        
+
+        if(SaveScript.arrowRefil)
+        {
+            arrowImage.SetActive(true);
+            arrowButton.SetActive(true);
+        }
+
+        else
+        {
+            arrowButton.SetActive(false);
+            arrowImage.SetActive(false);
+        }
+    }
+
+    private void checkKeys()
+    {
+        if(SaveScript.hasCabinKey)
+        {
+            cabinKey.SetActive(true);
+        }
+
+        if(SaveScript.hasHouseKey)
+        {
+            houseKey.SetActive(true);
+        }
+
+        if(SaveScript.hasRoomKey)
+        {
+            roomKey.SetActive(true);
+        }
     }
 
     void checkInventory()

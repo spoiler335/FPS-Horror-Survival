@@ -25,5 +25,13 @@ public class SaveScript : MonoBehaviour
     public static bool Gun=false;
     public static bool Crossbow=false;
 
+    public static bool hasCabinKey=false;
+    public static bool hasRoomKey=false;
+    public static bool hasHouseKey=false;
+
+    public static int bulletClips=0;
+
+    public static bool arrowRefil=false;
+
 
 }

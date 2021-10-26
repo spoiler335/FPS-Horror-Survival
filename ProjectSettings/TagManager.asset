@@ -11,6 +11,11 @@ TagManager:
   - Bat
   - Gun
   - CrossBow
+  - Magzine
+  - Arrows
+  - CabinKey
+  - RoomKey
+  - HouseKey
   layers:
   - Default
   - TransparentFX
