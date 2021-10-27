@@ -125,6 +125,76 @@ public class Pickups : MonoBehaviour
                 }
             }
 
+            else if(hit.transform.tag=="CabinKey")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.hasCabinKey)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.hasCabinKey=true;
+                        myPlayer.Play();
+                    }
+                }
+            }
+
+            else if(hit.transform.tag=="RoomKey")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.hasRoomKey)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.hasRoomKey=true;
+                        myPlayer.Play();
+                    }
+                }
+            }
+
+            else if(hit.transform.tag=="HouseKey")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.hasHouseKey)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.hasHouseKey=true;
+                        myPlayer.Play();
+                    }
+                }
+            }
+
+            else if(hit.transform.tag=="Magzine")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(SaveScript.bulletClips<4)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        ++SaveScript.bulletClips;
+                        myPlayer.Play();
+                    }
+                }
+            }
+
+            else if(hit.transform.tag=="Arrows")
+            {
+                canSeePickup=true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!SaveScript.arrowRefil)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScript.arrowRefil=true;
+                        myPlayer.Play();
+                    }
+                }
+            }
+
             else
             {
                 canSeePickup=false;
