@@ -8,6 +8,7 @@ public class Pickups : MonoBehaviour
 
     [SerializeField] float distance =4f;
     [SerializeField] GameObject pickupMessage;
+    [SerializeField] GameObject playerArms;
     private AudioSource myPlayer;
 
     private float rayDistance;
@@ -18,6 +19,7 @@ public class Pickups : MonoBehaviour
         pickupMessage.gameObject.SetActive(false);
         rayDistance=distance;
         myPlayer=GetComponent<AudioSource>();
+        playerArms.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

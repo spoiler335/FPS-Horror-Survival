@@ -11,6 +11,13 @@ public class Inventory : MonoBehaviour
     private AudioSource myPlayer;
     [SerializeField] AudioClip apppleBite;
     [SerializeField] AudioClip batteryChange;
+    [SerializeField] AudioClip weaponChange;
+
+    [SerializeField] GameObject playerarms;
+    [SerializeField] GameObject knife;
+    [SerializeField] GameObject bat;
+    [SerializeField] GameObject axe;
+
 
     //apples
     [SerializeField] GameObject appleImage1;
@@ -501,4 +508,34 @@ public class Inventory : MonoBehaviour
     }
 
 
+    public void assignKnife()
+    {
+        playerarms.SetActive(true);
+        knife.SetActive(true);
+        myPlayer.clip=weaponChange;
+        myPlayer.Play();
+    }
+
+    public void assignBat()
+    {
+        playerarms.SetActive(true);
+        bat.SetActive(true);
+        myPlayer.clip=weaponChange;
+        myPlayer.Play();
+    }
+
+    public void assignAxe()
+    {
+        playerarms.SetActive(true);
+        axe.SetActive(true);
+        myPlayer.clip=weaponChange;
+        myPlayer.Play();
+    }
+
+    public void weaponsOff()
+    {
+        axe.SetActive(false);
+        bat.SetActive(false);
+        knife.SetActive(false);
+    }
 }
