@@ -12,11 +12,17 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip apppleBite;
     [SerializeField] AudioClip batteryChange;
     [SerializeField] AudioClip weaponChange;
+    [SerializeField] AudioClip gunShot;
+    [SerializeField] AudioClip arrowShot;
+
 
     [SerializeField] GameObject playerarms;
     [SerializeField] GameObject knife;
     [SerializeField] GameObject bat;
     [SerializeField] GameObject axe;
+    [SerializeField] GameObject handGun;
+    [SerializeField] GameObject crossBow;
+
 
 
     //apples
@@ -79,7 +85,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject arrowImage;
     [SerializeField] GameObject arrowButton;
     
-
+    [SerializeField] Animator anim;
     void Start()
     {
         inventoryMenu.SetActive(false);
@@ -512,6 +518,7 @@ public class Inventory : MonoBehaviour
     {
         playerarms.SetActive(true);
         knife.SetActive(true);
+        anim.SetBool("Meele",true);
         myPlayer.clip=weaponChange;
         myPlayer.Play();
     }
@@ -520,6 +527,7 @@ public class Inventory : MonoBehaviour
     {
         playerarms.SetActive(true);
         bat.SetActive(true);
+        anim.SetBool("Meele",true);
         myPlayer.clip=weaponChange;
         myPlayer.Play();
     }
@@ -528,6 +536,7 @@ public class Inventory : MonoBehaviour
     {
         playerarms.SetActive(true);
         axe.SetActive(true);
+        anim.SetBool("Meele",true);
         myPlayer.clip=weaponChange;
         myPlayer.Play();
     }
@@ -537,5 +546,25 @@ public class Inventory : MonoBehaviour
         axe.SetActive(false);
         bat.SetActive(false);
         knife.SetActive(false);
+        handGun.SetActive(false);
+        crossBow.SetActive(false);
+    }
+
+    public void assignGun()
+    {
+        playerarms.SetActive(true);
+        handGun.SetActive(true);
+        anim.SetBool("Meele",false);
+        myPlayer.clip=gunShot;
+        myPlayer.Play();
+    }
+
+    public void assigCrossBow()
+    {
+        playerarms.SetActive(true);
+        crossBow.SetActive(true);
+        anim.SetBool("Meele",false);
+        myPlayer.clip=arrowShot;
+        myPlayer.Play();
     }
 }
