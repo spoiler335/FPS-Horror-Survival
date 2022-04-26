@@ -6,7 +6,7 @@ public class BatterPower : MonoBehaviour
 {
 
     [SerializeField] Image batteryUI;
-    [SerializeField] float drainTime=15.0f;
+    [SerializeField] float drainTime=180.0f;
 
     [SerializeField] float power;
     

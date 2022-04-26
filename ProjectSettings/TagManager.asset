@@ -16,6 +16,7 @@ TagManager:
   - CabinKey
   - RoomKey
   - HouseKey
+  - Door
   layers:
   - Default
   - TransparentFX
