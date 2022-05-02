@@ -206,21 +206,28 @@ public class Pickups : MonoBehaviour
             else if(hit.transform.tag=="Door")
             {
                 canSeeDoor=true;
-
-                if(!hit.transform.gameObject.GetComponent<DoorScript>().isOpen)
+                if(!hit.transform.GetComponent<DoorScript>().isLocked)
                 {
-                    doorText.text="Press E to Open";
+                    if(!hit.transform.GetComponent<DoorScript>().isOpen)
+                    {
+                        doorText.text="Press E to Open";
+                    }
+
+                    if(hit.transform.gameObject.GetComponent<DoorScript>().isOpen)
+                    {
+                        doorText.text="Press E to Close";
+                    }
+
+
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        hit.transform.gameObject.SendMessage("doorOpen");
+                    }
                 }
 
-                if(hit.transform.gameObject.GetComponent<DoorScript>().isOpen)
+                else if(hit.transform.GetComponent<DoorScript>().isLocked)
                 {
-                    doorText.text="Press E to Close";
-                }
-
-
-                if(Input.GetKeyDown(KeyCode.E))
-                {
-                    hit.transform.gameObject.SendMessage("doorOpen");
+                    doorText.text="You need " + (hit.transform.GetComponent<DoorScript>().doorType ) + " key.";
                 }
             }
 

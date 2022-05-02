@@ -17,7 +17,9 @@ public class DoorScript : MonoBehaviour
     [SerializeField] bool isCabin;
     [SerializeField] bool isRoom;
     [SerializeField] bool isHouse;
-
+    
+    public bool isLocked;
+    public string doorType;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,32 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(isCabin)
+        {
+            doorType="Cabin";
+            if(SaveScript.hasCabinKey)
+            {
+                isLocked=false;
+            }
+        }   
+
+        if(isRoom)
+        {
+            doorType="Room";
+            if(SaveScript.hasRoomKey)
+            {
+                isLocked=false;
+            }
+        }
+
+        if(isHouse)
+        {
+            doorType="House";
+            if(SaveScript.hasHouseKey)
+            {
+                isLocked=false;
+            }
+        }
     }
 
     public void doorOpen()
