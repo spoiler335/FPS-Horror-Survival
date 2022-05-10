@@ -17,6 +17,7 @@ TagManager:
   - RoomKey
   - HouseKey
   - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX
