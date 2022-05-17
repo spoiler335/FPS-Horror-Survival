@@ -28,6 +28,8 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         nav=GetComponentInParent<NavMeshAgent>(); 
+
+        StartCoroutine(startWalking());
     }
 
     // Update is called once per frame
@@ -99,5 +101,13 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(checkTime);
         isCheking =true;
         enemy.GetComponent<EnemyMove>().enabled=true;
+    }
+
+    IEnumerator startWalking()
+    {
+        yield return new WaitForSeconds(1f);
+        runToPlayer=true;
+        yield return new WaitForSeconds(0.1f);
+        runToPlayer=false;
     }
 }
