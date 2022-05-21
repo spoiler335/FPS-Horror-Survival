@@ -57,6 +57,7 @@ public class EnemyAttack : MonoBehaviour
                 {
                     Debug.Log("Can see Player");
                     runToPlayer=true;
+                    failedChecks=0;
                 }
 
                 if(blocked)
@@ -64,6 +65,7 @@ public class EnemyAttack : MonoBehaviour
                     Debug.Log("can't see the player");
                     runToPlayer=false;
                     anim.SetInteger("State",1);
+                    ++failedChecks;
                 }
 
                 StartCoroutine(timeChecked());
@@ -93,11 +95,19 @@ public class EnemyAttack : MonoBehaviour
         if(!runToPlayer)
         {
             nav.isStopped=true;
-            //enemy.GetComponent<EnemyAttack>().enabled=true;
+            enemy.GetComponent<EnemyMove>().enabled=true;
             anim.SetInteger("State",0);
             nav.speed=walkSpeed;
             isCheking=true;
         }
+    }
+    
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Player"))
+        {
+            runToPlayer=true;
+        }    
     }
 
     IEnumerator timeChecked()
@@ -105,6 +115,14 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(checkTime);
         isCheking =true;
         enemy.GetComponent<EnemyMove>().enabled=true;
+        
+        if(failedChecks>maxChecks)
+        {
+            enemy.GetComponent<EnemyMove>().enabled=true;
+            nav.isStopped=false;
+            nav.speed=walkSpeed;
+            failedChecks=0;
+        }
     }
 
     IEnumerator startWalking()
