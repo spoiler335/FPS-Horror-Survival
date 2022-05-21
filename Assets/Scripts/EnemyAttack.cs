@@ -93,6 +93,10 @@ public class EnemyAttack : MonoBehaviour
         if(!runToPlayer)
         {
             nav.isStopped=true;
+            //enemy.GetComponent<EnemyAttack>().enabled=true;
+            anim.SetInteger("State",0);
+            nav.speed=walkSpeed;
+            isCheking=true;
         }
     }
 
