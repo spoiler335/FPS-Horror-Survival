@@ -23,6 +23,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float attackDistance=2.3f;
     [SerializeField] float attackRotateSpeed = 2f;
     [SerializeField] float checkTime = 3f;
+    [SerializeField] GameObject chaseMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class EnemyAttack : MonoBehaviour
         nav=GetComponentInParent<NavMeshAgent>(); 
 
         StartCoroutine(startWalking());
+
+        chaseMusic.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,7 +78,8 @@ public class EnemyAttack : MonoBehaviour
         if(runToPlayer)
         {
             enemy.GetComponent<EnemyMove>().enabled=false;
-            if(distanceToPlayer>attackDistance)
+            chaseMusic.SetActive(true);
+            if(distanceToPlayer > attackDistance)
             {
                 nav.isStopped=false;
                 anim.SetInteger("State",2);
@@ -84,11 +88,16 @@ public class EnemyAttack : MonoBehaviour
                 nav.speed=chaseSpeed;
             }
 
-            if(distanceToPlayer<attackDistance)
+            if(distanceToPlayer < attackDistance - 0.5f)
             {
                 nav.isStopped=true;
                 Debug.Log("Attacking");
+                anim.SetInteger("State",3);
                 nav.acceleration=180;
+
+                Vector3 pos = (player.position - enemy.transform.position).normalized;
+                Quaternion posRotation= Quaternion.LookRotation(new Vector3(pos.x,0,pos.y));
+                enemy.transform.rotation=Quaternion.Slerp(enemy.transform.rotation,posRotation,Time.deltaTime*attackRotateSpeed);
             }
         }
 
@@ -98,6 +107,7 @@ public class EnemyAttack : MonoBehaviour
             enemy.GetComponent<EnemyMove>().enabled=true;
             anim.SetInteger("State",0);
             nav.speed=walkSpeed;
+            chaseMusic.SetActive(false);
             isCheking=true;
         }
     }
@@ -122,6 +132,7 @@ public class EnemyAttack : MonoBehaviour
             nav.isStopped=false;
             nav.speed=walkSpeed;
             failedChecks=0;
+            chaseMusic.SetActive(false);
         }
     }
 
