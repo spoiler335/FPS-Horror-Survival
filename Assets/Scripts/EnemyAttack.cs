@@ -24,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float attackRotateSpeed = 2f;
     [SerializeField] float checkTime = 3f;
     [SerializeField] GameObject chaseMusic;
+    [SerializeField] GameObject hurtUI;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +87,7 @@ public class EnemyAttack : MonoBehaviour
                 nav.acceleration=24;
                 nav.SetDestination(player.position);
                 nav.speed=chaseSpeed;
+                hurtUI.SetActive(false);
             }
 
             if(distanceToPlayer < attackDistance - 0.5f)
@@ -94,6 +96,8 @@ public class EnemyAttack : MonoBehaviour
                 Debug.Log("Attacking");
                 anim.SetInteger("State",3);
                 nav.acceleration=180;
+                hurtUI.SetActive(true);
+
 
                 Vector3 pos = (player.position - enemy.transform.position).normalized;
                 Quaternion posRotation= Quaternion.LookRotation(new Vector3(pos.x,0,pos.y));
