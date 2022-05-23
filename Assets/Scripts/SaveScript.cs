@@ -33,5 +33,7 @@ public class SaveScript : MonoBehaviour
 
     public static bool arrowRefil=false;
 
-
+    public static bool holdsKnife=false;
+    public static bool holdsAxe=false;
+    public static bool holdsBat=false;
 }
