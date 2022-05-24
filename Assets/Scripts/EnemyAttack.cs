@@ -122,6 +122,11 @@ public class EnemyAttack : MonoBehaviour
         {
             runToPlayer=true;
         }    
+
+        if(other.CompareTag("Knife"))
+        {
+            anim.SetTrigger("SmallReact");
+        }   
     }
 
     IEnumerator timeChecked()
