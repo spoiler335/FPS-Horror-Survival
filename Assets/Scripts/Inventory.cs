@@ -163,9 +163,9 @@ public class Inventory : MonoBehaviour
                 inventoryActive=false;
                 Time.timeScale=1f;
                 Cursor.visible=false;
-                SaveScript.holdsKnife=false;
-                SaveScript.holdsAxe=false;
-                SaveScript.holdsBat=true;
+                // SaveScript.holdsKnife=false;
+                // SaveScript.holdsAxe=false;
+                // SaveScript.holdsBat=false;
             }
             
             else

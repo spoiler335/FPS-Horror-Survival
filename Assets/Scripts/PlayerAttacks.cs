@@ -6,51 +6,76 @@ public class PlayerAttacks : MonoBehaviour
 {
 
     private Animator anim;
+    private float attackStamina;
+    [SerializeField] float maxAttackStamina=10f;
+    [SerializeField] float attackDrain=2f;
+    [SerializeField] float attackRefil=1f;
     // Start is called before the first frame update
     void Start()
     {
         anim=GetComponent<Animator>();
+        attackStamina=maxAttackStamina;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(SaveScript.holdsKnife)
+        if(attackStamina < maxAttackStamina)
         {
-            if(Input.GetMouseButtonDown(0))
-            {
-                anim.SetTrigger("KnifeLMB");
-            }
-
-            if(Input.GetMouseButtonDown(1))
-            {
-                anim.SetTrigger("KnifeRMB");
-            }
+            attackStamina+=attackRefil*Time.deltaTime;
         }
 
-        if(SaveScript.holdsAxe)
+        if(attackStamina <= 0.1f)
         {
-            if(Input.GetMouseButtonDown(0))
-            {
-                anim.SetTrigger("AxeLMB");
-            }
+            attackStamina=0.1f;
+        }
 
-            if(Input.GetMouseButtonDown(1))
-            {
-                anim.SetTrigger("AxeRMB");
-            }
-        }     
-
-        if(SaveScript.holdsBat)
+        if(attackStamina > 3f)
         {
-            if(Input.GetMouseButtonDown(0))
+            Debug.Log(attackStamina);
+            if(SaveScript.holdsKnife)
             {
-                anim.SetTrigger("BatLMB");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    anim.SetTrigger("KnifeLMB");
+                    attackStamina-=attackDrain;
+                }
+
+                if(Input.GetMouseButtonDown(1))
+                {
+                    anim.SetTrigger("KnifeRMB");
+                    attackStamina-=attackDrain;
+                }
             }
 
-            if(Input.GetMouseButtonDown(1))
+            if(SaveScript.holdsAxe)
             {
-                anim.SetTrigger("BatRMB");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    anim.SetTrigger("AxeLMB");
+                    attackStamina-=attackDrain;
+                }
+
+                if(Input.GetMouseButtonDown(1))
+                {
+                    anim.SetTrigger("AxeRMB");
+                    attackStamina-=attackDrain;
+                }
+            }     
+
+            if(SaveScript.holdsBat)
+            {
+                if(Input.GetMouseButtonDown(0))
+                {
+                    anim.SetTrigger("BatLMB");
+                    attackStamina-=attackDrain;
+                }
+
+                if(Input.GetMouseButtonDown(1))
+                {
+                    anim.SetTrigger("BatRMB");
+                    attackStamina-=attackDrain;
+                }
             }
         }
     }
