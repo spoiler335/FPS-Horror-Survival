@@ -10,7 +10,7 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] AudioSource stabPlayer;
     private Animator anim;
     [SerializeField] GameObject enemyObject;
-    private bool hasDied=false;
+    public bool hasDied=false;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class EnemyDamage : MonoBehaviour
             {
                 hasDied=true;
                 anim.SetTrigger("Death");
-
+                anim.SetBool("isDead", true);
                 Destroy(enemyObject,25f);
             }
         }
@@ -35,21 +35,21 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("Knife"))
+        if(other.CompareTag("PKnife"))
         {
             enemyHealth-=10;
             audioSource.Play();
             stabPlayer.Play();
         }
 
-        if(other.CompareTag("Bat"))
+        if(other.CompareTag("PBat"))
         {
             enemyHealth-=15;
             audioSource.Play();
             stabPlayer.Play();
         }
 
-        if(other.CompareTag("Axe"))
+        if(other.CompareTag("PAxe"))
         {
             enemyHealth-=20;
             audioSource.Play();

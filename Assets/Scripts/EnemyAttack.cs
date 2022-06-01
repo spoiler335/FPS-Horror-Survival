@@ -25,6 +25,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float checkTime = 3f;
     [SerializeField] GameObject chaseMusic;
     [SerializeField] GameObject hurtUI;
+    [SerializeField] GameObject enemyDamageZone;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,10 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        if(enemyDamageZone.GetComponent<EnemyDamage>().hasDied)
+        {
+            chaseMusic.SetActive(false);
+        }
         distanceToPlayer=Vector3.Distance(player.position,enemy.transform.position);
 
         if(distanceToPlayer> maxRange)
@@ -79,7 +84,10 @@ public class EnemyAttack : MonoBehaviour
         if(runToPlayer)
         {
             enemy.GetComponent<EnemyMove>().enabled=false;
-            chaseMusic.SetActive(true);
+            if(!enemyDamageZone.GetComponent<EnemyDamage>().hasDied)
+            {
+                chaseMusic.SetActive(true);
+            }
             if(distanceToPlayer > attackDistance)
             {
                 nav.isStopped=false;
@@ -123,12 +131,17 @@ public class EnemyAttack : MonoBehaviour
             runToPlayer=true;
         }    
 
-        if(other.CompareTag("Knife"))
+        if(other.CompareTag("PKnife"))
+        {
+            anim.SetTrigger("SmallReact");
+        }
+
+        if(other.CompareTag("PBat"))
         {
             anim.SetTrigger("SmallReact");
         }   
 
-        if(other.CompareTag("Axe"))
+        if(other.CompareTag("PAxe"))
         {
             anim.SetTrigger("BigReact");
         }
