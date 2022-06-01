@@ -6,7 +6,7 @@ public class PlayerAttacks : MonoBehaviour
 {
 
     private Animator anim;
-    private float attackStamina;
+    public float attackStamina;
     [SerializeField] float maxAttackStamina=10f;
     [SerializeField] float attackDrain=2f;
     [SerializeField] float attackRefil=1f;

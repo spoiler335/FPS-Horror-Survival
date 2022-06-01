@@ -37,7 +37,21 @@ public class EnemyDamage : MonoBehaviour
     {
         if(other.CompareTag("Knife"))
         {
-            enemyHealth-=50;
+            enemyHealth-=10;
+            audioSource.Play();
+            stabPlayer.Play();
+        }
+
+        if(other.CompareTag("Bat"))
+        {
+            enemyHealth-=15;
+            audioSource.Play();
+            stabPlayer.Play();
+        }
+
+        if(other.CompareTag("Axe"))
+        {
+            enemyHealth-=20;
             audioSource.Play();
             stabPlayer.Play();
         }    
