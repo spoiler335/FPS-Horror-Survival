@@ -11,11 +11,15 @@ public class EnemyDamage : MonoBehaviour
     private Animator anim;
     [SerializeField] GameObject enemyObject;
     public bool hasDied=false;
+    [SerializeField] GameObject bloodSplatKnife;
+    [SerializeField] GameObject bloodSplatBat;
+    [SerializeField] GameObject bloodSplatAxe;
 
     void Start()
     {
         audioSource=GetComponent<AudioSource>();
         anim=GetComponentInParent<Animator>();
+        bloodSplatKnife.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class EnemyDamage : MonoBehaviour
             enemyHealth-=10;
             audioSource.Play();
             stabPlayer.Play();
+            bloodSplatKnife.SetActive(true);
         }
 
         if(other.CompareTag("PBat"))
@@ -47,6 +52,7 @@ public class EnemyDamage : MonoBehaviour
             enemyHealth-=15;
             audioSource.Play();
             stabPlayer.Play();
+            bloodSplatBat.SetActive(true);
         }
 
         if(other.CompareTag("PAxe"))
@@ -54,6 +60,7 @@ public class EnemyDamage : MonoBehaviour
             enemyHealth-=20;
             audioSource.Play();
             stabPlayer.Play();
+            bloodSplatAxe.SetActive(true);
         }    
     }
 }
