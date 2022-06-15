@@ -527,7 +527,8 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsKnife=true;
         SaveScript.holdsAxe=false;
         SaveScript.holdsBat=false;
-
+        SaveScript.holdsGun=false;
+        SaveScript.holdsGun=false;
     }
 
     public void assignBat()
@@ -539,6 +540,7 @@ public class Inventory : MonoBehaviour
         myPlayer.Play();
         SaveScript.holdsKnife=false;
         SaveScript.holdsAxe=false;
+        SaveScript.holdsGun=false;
         SaveScript.holdsBat=true;
     }
 
@@ -552,6 +554,7 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsKnife=false;
         SaveScript.holdsAxe=true;
         SaveScript.holdsBat=false;
+        SaveScript.holdsGun=false;
     }
 
     public void weaponsOff()
@@ -570,6 +573,10 @@ public class Inventory : MonoBehaviour
         anim.SetBool("Meele",false);
         myPlayer.clip=gunShot;
         myPlayer.Play();
+        SaveScript.holdsGun=true;
+        SaveScript.holdsKnife=false;
+        SaveScript.holdsAxe=false;
+        SaveScript.holdsBat=false;
     }
 
     public void assigCrossBow()

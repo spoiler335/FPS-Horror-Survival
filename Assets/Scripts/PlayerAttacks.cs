@@ -10,11 +10,14 @@ public class PlayerAttacks : MonoBehaviour
     [SerializeField] float maxAttackStamina=10f;
     [SerializeField] float attackDrain=2f;
     [SerializeField] float attackRefil=1f;
+    [SerializeField] GameObject crossAir;
+    [SerializeField] GameObject pointer;
     // Start is called before the first frame update
     void Start()
     {
         anim=GetComponent<Animator>();
         attackStamina=maxAttackStamina;
+        crossAir.SetActive(false);
     }
 
     // Update is called once per frame
@@ -75,6 +78,24 @@ public class PlayerAttacks : MonoBehaviour
                 {
                     anim.SetTrigger("BatRMB");
                     attackStamina-=attackDrain;
+                }
+            }
+
+            if(SaveScript.holdsGun)
+            {
+                
+                if(Input.GetMouseButton(1))
+                {
+                    anim.SetBool("AimGun",true);
+                    crossAir.SetActive(true);
+                    pointer.SetActive(false);
+                }
+
+                if(Input.GetMouseButtonUp(1))
+                {
+                    anim.SetBool("AimGun",false);
+                    crossAir.SetActive(false);
+                    pointer.SetActive(true);
                 }
             }
         }
