@@ -23,6 +23,7 @@ TagManager:
   - PAxe
   - PGun
   - PCrossbow
+  - Body
   layers:
   - Default
   - TransparentFX

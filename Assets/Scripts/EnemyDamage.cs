@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     
-    [SerializeField ] int enemyHealth=100;
+    public int enemyHealth=100;
     private AudioSource audioSource;
     [SerializeField] AudioSource stabPlayer;
     private Animator anim;
