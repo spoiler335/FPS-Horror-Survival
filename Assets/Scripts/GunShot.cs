@@ -21,7 +21,7 @@ public class GunShot : MonoBehaviour
                 {
                     if(hit.transform.Find("Body"))
                     {
-                        hit.transform.GetComponentInChildren<EnemyDamage>().enemyHealth-=Random.Range(30,101);
+                        hit.transform.GetComponentInChildren<EnemyDamage>().enemyHealth-=Random.Range(30,90);
                         hit.transform.GetComponent<Animator>().SetTrigger("BigReact");
                     }
                 }
