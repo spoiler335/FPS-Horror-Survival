@@ -15,12 +15,12 @@ public class GunUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bulletsAmt.text= SaveScript.bullets + "";
         if(SaveScript.holdsGun && Input.GetMouseButtonDown(0))
         {
             if(SaveScript.bullets > 0)
             {
                 SaveScript.bullets -= 1;
-                bulletsAmt.text= SaveScript.bullets + "";
             }
         }
     }

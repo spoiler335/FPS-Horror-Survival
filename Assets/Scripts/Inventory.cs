@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] AudioClip weaponChange;
     [SerializeField] AudioClip gunShot;
     [SerializeField] AudioClip arrowShot;
+    [SerializeField] AudioClip gunReloadSound;
 
 
     [SerializeField] GameObject playerarms;
@@ -87,6 +88,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject arrowButton;
     
     [SerializeField] Animator anim;
+    
     void Start()
     {
         inventoryMenu.SetActive(false);
@@ -592,6 +594,18 @@ public class Inventory : MonoBehaviour
         crossBow.SetActive(true);
         anim.SetBool("Meele",false);
         myPlayer.clip=arrowShot;
+        myPlayer.Play();
+    }
+
+    public void reload()
+    {
+        SaveScript.bulletClips-=1;
+        SaveScript.bullets+=12;
+        if(SaveScript.bullets > 12 )
+        {
+            SaveScript.bullets=12;
+        }
+        myPlayer.clip=gunReloadSound;
         myPlayer.Play();
     }
 }
