@@ -104,8 +104,11 @@ public class PlayerAttacks : MonoBehaviour
 
                 if(Input.GetMouseButtonDown(0))
                 {
-                    myPlayer.clip=gunSound;
-                    myPlayer.Play();
+                    if(SaveScript.bullets > 0)
+                    {
+                        myPlayer.clip=gunSound;
+                        myPlayer.Play();
+                    }
                 }
             }
         }

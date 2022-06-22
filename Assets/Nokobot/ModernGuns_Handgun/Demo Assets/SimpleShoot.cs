@@ -24,7 +24,10 @@ public class SimpleShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            GetComponent<Animator>().SetTrigger("Fire");
+            if(SaveScript.bullets > 0)
+            {
+                GetComponent<Animator>().SetTrigger("Fire");
+            }   
         }
     }
 

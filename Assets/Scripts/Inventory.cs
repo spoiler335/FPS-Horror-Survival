@@ -81,7 +81,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject bulletClipButton3;
     [SerializeField] GameObject bulletClipImage4;
     [SerializeField] GameObject bulletClipButton4;
-
+    [SerializeField] GameObject GunUI;
+    [SerializeField] GameObject bulletsAmt;
     [SerializeField] GameObject arrowImage;
     [SerializeField] GameObject arrowButton;
     
@@ -89,6 +90,8 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         inventoryMenu.SetActive(false);
+        GunUI.SetActive(false);
+        bulletsAmt.SetActive(false);
         inventoryActive=false;
         Cursor.visible=false;   
         myPlayer= GetComponent<AudioSource>();
@@ -163,9 +166,6 @@ public class Inventory : MonoBehaviour
                 inventoryActive=false;
                 Time.timeScale=1f;
                 Cursor.visible=false;
-                // SaveScript.holdsKnife=false;
-                // SaveScript.holdsAxe=false;
-                // SaveScript.holdsBat=false;
             }
             
             else
@@ -174,6 +174,11 @@ public class Inventory : MonoBehaviour
                 inventoryActive=true;
                 Time.timeScale=0f;
                 Cursor.visible=true;
+                SaveScript.holdsKnife=false;
+                SaveScript.holdsAxe=false;
+                SaveScript.holdsBat=false;
+                GunUI.SetActive(false);
+                bulletsAmt.SetActive(false);
             }
         }
         checkInventory();
@@ -577,6 +582,8 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsKnife=false;
         SaveScript.holdsAxe=false;
         SaveScript.holdsBat=false;
+        GunUI.SetActive(true);
+        bulletsAmt.SetActive(true); 
     }
 
     public void assigCrossBow()

@@ -30,6 +30,7 @@ public class SaveScript : MonoBehaviour
     public static bool hasHouseKey=false;
 
     public static int bulletClips=0;
+    public static int bullets=12;
 
     public static bool arrowRefil=false;
 
