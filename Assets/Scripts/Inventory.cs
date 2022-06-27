@@ -84,6 +84,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject bulletClipButton4;
     [SerializeField] GameObject GunUI;
     [SerializeField] GameObject bulletsAmt;
+    [SerializeField] GameObject CrossbowUI;
+    [SerializeField] GameObject arrowAmt;
     [SerializeField] GameObject arrowImage;
     [SerializeField] GameObject arrowButton;
     
@@ -94,6 +96,8 @@ public class Inventory : MonoBehaviour
         inventoryMenu.SetActive(false);
         GunUI.SetActive(false);
         bulletsAmt.SetActive(false);
+        CrossbowUI.SetActive(false);
+        arrowAmt.SetActive(false);
         inventoryActive=false;
         Cursor.visible=false;   
         myPlayer= GetComponent<AudioSource>();
@@ -179,8 +183,12 @@ public class Inventory : MonoBehaviour
                 SaveScript.holdsKnife=false;
                 SaveScript.holdsAxe=false;
                 SaveScript.holdsBat=false;
+                SaveScript.holdsGun=false;
+                SaveScript.holdsCrossBow=false;
                 GunUI.SetActive(false);
                 bulletsAmt.SetActive(false);
+                CrossbowUI.SetActive(false);
+                arrowAmt.SetActive(false);
             }
         }
         checkInventory();
@@ -536,6 +544,7 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsBat=false;
         SaveScript.holdsGun=false;
         SaveScript.holdsGun=false;
+        SaveScript.holdsCrossBow=false;
     }
 
     public void assignBat()
@@ -549,6 +558,7 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsAxe=false;
         SaveScript.holdsGun=false;
         SaveScript.holdsBat=true;
+        SaveScript.holdsCrossBow=false;
     }
 
     public void assignAxe()
@@ -562,6 +572,7 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsAxe=true;
         SaveScript.holdsBat=false;
         SaveScript.holdsGun=false;
+        SaveScript.holdsCrossBow=false;
     }
 
     public void weaponsOff()
@@ -586,6 +597,7 @@ public class Inventory : MonoBehaviour
         SaveScript.holdsBat=false;
         GunUI.SetActive(true);
         bulletsAmt.SetActive(true); 
+        SaveScript.holdsCrossBow=false;
     }
 
     public void assigCrossBow()
@@ -595,6 +607,13 @@ public class Inventory : MonoBehaviour
         anim.SetBool("Meele",false);
         myPlayer.clip=arrowShot;
         myPlayer.Play();
+        SaveScript.holdsCrossBow=true; 
+        SaveScript.holdsGun=false;
+        SaveScript.holdsKnife=false;
+        SaveScript.holdsAxe=false;
+        SaveScript.holdsBat=false;
+        CrossbowUI.SetActive(true);
+        arrowAmt.SetActive(true);
     }
 
     public void reload()

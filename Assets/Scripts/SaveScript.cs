@@ -31,6 +31,7 @@ public class SaveScript : MonoBehaviour
 
     public static int bulletClips=0;
     public static int bullets=12;
+    public static int arrows=6;
 
     public static bool arrowRefil=false;
 
@@ -38,5 +39,6 @@ public class SaveScript : MonoBehaviour
     public static bool holdsAxe=false;
     public static bool holdsBat=false;
     public static bool holdsGun=false;
+    public static bool holdsCrossBow=false;
 
 }
