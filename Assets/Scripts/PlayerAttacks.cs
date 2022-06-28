@@ -131,7 +131,7 @@ public class PlayerAttacks : MonoBehaviour
 
                 if(Input.GetMouseButtonDown(0))
                 {
-                    if(SaveScript.bullets > 0)
+                    if(SaveScript.arrows > 0)
                     {
                         myPlayer.clip=bowShotSound;
                         myPlayer.Play();
