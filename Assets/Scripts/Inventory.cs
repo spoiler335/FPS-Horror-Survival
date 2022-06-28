@@ -627,4 +627,17 @@ public class Inventory : MonoBehaviour
         myPlayer.clip=gunReloadSound;
         myPlayer.Play();
     }
+
+    public void arrowRefill()
+    {
+        SaveScript.arrowRefil = false; 
+        SaveScript.arrows+=6;
+        if(SaveScript.arrows > 6)
+        {
+            SaveScript.arrows=6;
+        }
+
+        myPlayer.clip=arrowShot;
+        myPlayer.Play();
+    }
 }
