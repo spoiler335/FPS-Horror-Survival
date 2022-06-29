@@ -14,11 +14,20 @@ public class LoadingScreenBarSystem : MonoBehaviour {
     AsyncOperation async;
     Image vignetteEfect;
 
+    public GameObject loadingScreen;
+    public GameObject menuScreen;
 
-    public void loadingScreen (int sceneNo)
+
+    public void LoadingScreen (int sceneNo)
     {
         this.gameObject.SetActive(true);
         StartCoroutine(Loading(sceneNo));
+    }
+
+    public void switchOFF()
+    {
+        loadingScreen.SetActive(true);
+        menuScreen.SetActive(false);
     }
 
     // Used to try. Delete the comment lines (25 and 36)
@@ -39,7 +48,8 @@ public class LoadingScreenBarSystem : MonoBehaviour {
     {
         vignetteEfect = transform.Find("VignetteEfect").GetComponent<Image>();
         vignetteEfect.color = new Color(vignetteEfect.color.r,vignetteEfect.color.g,vignetteEfect.color.b,vignetteEfectVolue);
-
+        menuScreen.SetActive(true);
+        //loadingScreen.SetActive(false); 
         if (backGroundImageAndLoop)
             StartCoroutine(transitionImage());
     }

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main_menu.unity
+    guid: 2e98da94b82d8aa4994f1e3b86bb3a8c
+  - enabled: 1
+    path: Assets/Scenes/HorrorScene Lighting.unity
+    guid: 427da212e28f3584f850a1b0234bcd93
   m_configObjects: {}
